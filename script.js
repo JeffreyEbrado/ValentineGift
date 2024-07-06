@@ -14,20 +14,25 @@ let clickCount = 0;
 document.getElementById("noID").addEventListener("click", function() {
     clickCount++;
     const yesButton = document.querySelector('.yes');
+    const anotherPanel = document.querySelector('.another_panel');
+    const firstPanel = document.querySelector('.first-panel');
 
-    if (clickCount < 5) {
+    if (clickCount < 4) {
         yesButton.style.width = `${parseInt(yesButton.style.width || 100) * 2}px`;
         yesButton.style.height = `${parseInt(yesButton.style.height || 50) * 2}px`;
-    } else if (clickCount === 5) {
-        yesButton.style.position = 'absolute';
-        yesButton.style.top = '0%';
-        yesButton.style.left = '0%';
-        yesButton.style.width = '100%';
-        yesButton.style.height = '100%';
+    } else if (clickCount === 4) {
+        firstPanel.style.display = 'none';
+        anotherPanel.style.display = 'block';
     } 
 });
 
 document.getElementById("yesID").addEventListener("click", function() {
+    document.querySelector('.panel').style.display = 'block';
+    document.querySelector('.first-panel').style.display = 'none';
+});
+
+
+document.getElementById("yesanotherID").addEventListener("click", function() {
     document.querySelector('.panel').style.display = 'block';
     document.querySelector('.first-panel').style.display = 'none';
 });
