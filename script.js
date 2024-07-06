@@ -16,11 +16,15 @@ let clickCount = 0;
 
 document.getElementById("noID").addEventListener("click", function() {
     clickCount++;
-    if (clickCount <= 5) {
+    if (clickCount <= 4) {
         const yesButton = document.querySelector('.yes');
         yesButton.style.width = `${parseInt(yesButton.style.width || 100) * 2}px`;
         yesButton.style.height = `${parseInt(yesButton.style.height || 50) * 2}px`;
-    } else {
+    } else if(clickCount == 5){
+        const yesButton = document.querySelector('.yes');
+        yesButton.style.width = '100%';
+        yesButton.style.height = '100%';        
+    }else {
         document.querySelector('.yes').style.width = '100%';
         document.querySelector('.yes').style.height = '100%';
         document.querySelector('.yes').style.position = 'fixed';
